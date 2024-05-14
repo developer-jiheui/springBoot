@@ -1,7 +1,8 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 public interface BbsService {

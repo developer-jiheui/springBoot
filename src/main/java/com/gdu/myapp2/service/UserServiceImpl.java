@@ -1,4 +1,4 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -9,20 +9,23 @@ import java.net.URL;
 import java.security.SecureRandom;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
-import org.json.JSONObject;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.gdu.myapp.dto.UserDto;
-import com.gdu.myapp.mapper.UserMapper;
-import com.gdu.myapp.utils.MyJavaMailUtils;
-import com.gdu.myapp.utils.MySecurityUtils;
+import com.gdu.myapp2.dto.UserDto;
+import com.gdu.myapp2.mapper.UserMapper;
+import com.gdu.myapp2.utils.MyJavaMailUtils;
+import com.gdu.myapp2.utils.MySecurityUtils;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -180,7 +183,8 @@ public class UserServiceImpl implements UserService {
     }
     
   }
-  
+
+  @Transactional(readOnly = true)
   @Override
   public String getRedirectURLAfterSignin(HttpServletRequest request) {
     
@@ -287,7 +291,8 @@ public class UserServiceImpl implements UserService {
     }
     
   }
-  
+
+  @Transactional(readOnly = true)
   @Override
   public String getNaverLoginURL(HttpServletRequest request) {
     
@@ -368,9 +373,13 @@ public class UserServiceImpl implements UserService {
     }
     
     con.disconnect();
-    
-    return obj.getString("access_token");
-    
+
+      try {
+          return obj.getString("access_token");
+      } catch (JSONException e) {
+          throw new RuntimeException(e);
+      }
+
   }
   
   @Override
@@ -432,7 +441,8 @@ public class UserServiceImpl implements UserService {
     return user;
     
   }
-  
+
+  @Transactional(readOnly = true)
   @Override
   public boolean hasUser(UserDto user) {
     return userMapper.getLeaveUserByMap(Map.of("email", user.getEmail())) != null;

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.gdu.myapp.mapper.UploadMapper">
+<mapper namespace="com.gdu.myapp2.mapper.UploadMapper">
 
   <resultMap type="UploadDto" id="UploadMap">
     <id     property="uploadNo"    column="UPLOAD_NO" />

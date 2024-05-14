@@ -1,13 +1,15 @@
-package com.gdu.myapp.mapper;
+package com.gdu.myapp2.mapper;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.gdu.myapp.dto.BlogDto;
-import com.gdu.myapp.dto.CommentDto;
-import com.gdu.myapp.dto.BlogImageDto;
+import com.gdu.myapp2.dto.BlogDto;
+import com.gdu.myapp2.dto.CommentDto;
+import com.gdu.myapp2.dto.BlogImageDto;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface BlogMapper {

@@ -12,15 +12,15 @@
   
   <!-- typeAliases -->
   <typeAliases>
-    <typeAlias alias="AccessHistoryDto" type="com.gdu.myapp.dto.AccessHistoryDto"/>
-    <typeAlias alias="LeaveUserDto"     type="com.gdu.myapp.dto.LeaveUserDto"/>
-    <typeAlias alias="UserDto"          type="com.gdu.myapp.dto.UserDto"/>
-    <typeAlias alias="BbsDto"           type="com.gdu.myapp.dto.BbsDto"/>
-    <typeAlias alias="BlogDto"          type="com.gdu.myapp.dto.BlogDto"/>
-    <typeAlias alias="BlogImageDto"     type="com.gdu.myapp.dto.BlogImageDto"/>
-    <typeAlias alias="CommentDto"       type="com.gdu.myapp.dto.CommentDto"/>
-    <typeAlias alias="UploadDto"        type="com.gdu.myapp.dto.UploadDto"/>
-    <typeAlias alias="AttachDto"        type="com.gdu.myapp.dto.AttachDto"/>
+    <typeAlias alias="AccessHistoryDto" type="com.gdu.myapp2.dto.AccessHistoryDto"/>
+    <typeAlias alias="LeaveUserDto"     type="com.gdu.myapp2.dto.LeaveUserDto"/>
+    <typeAlias alias="UserDto"          type="com.gdu.myapp2.dto.UserDto"/>
+    <typeAlias alias="BbsDto"           type="com.gdu.myapp2.dto.BbsDto"/>
+    <typeAlias alias="BlogDto"          type="com.gdu.myapp2.dto.BlogDto"/>
+    <typeAlias alias="BlogImageDto"     type="com.gdu.myapp2.dto.BlogImageDto"/>
+    <typeAlias alias="CommentDto"       type="com.gdu.myapp2.dto.CommentDto"/>
+    <typeAlias alias="UploadDto"        type="com.gdu.myapp2.dto.UploadDto"/>
+    <typeAlias alias="AttachDto"        type="com.gdu.myapp2.dto.AttachDto"/>
   </typeAliases>
   
 </configuration>

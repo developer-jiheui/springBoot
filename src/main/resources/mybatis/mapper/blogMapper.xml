@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.gdu.myapp.mapper.BlogMapper">
+<mapper namespace="com.gdu.myapp2.mapper.BlogMapper">
 
   <resultMap type="BlogDto" id="BlogMap">
     <id     property="blogNo"   column="BLOG_NO" />

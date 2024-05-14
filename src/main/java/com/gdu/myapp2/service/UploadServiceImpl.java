@@ -1,4 +1,4 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
@@ -20,29 +20,35 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.gdu.myapp.dto.AttachDto;
-import com.gdu.myapp.dto.UploadDto;
-import com.gdu.myapp.dto.UserDto;
-import com.gdu.myapp.mapper.UploadMapper;
-import com.gdu.myapp.utils.MyFileUtils;
-import com.gdu.myapp.utils.MyPageUtils;
+import com.gdu.myapp2.dto.AttachDto;
+import com.gdu.myapp2.dto.UploadDto;
+import com.gdu.myapp2.dto.UserDto;
+import com.gdu.myapp2.mapper.UploadMapper;
+import com.gdu.myapp2.utils.MyFileUtils;
+import com.gdu.myapp2.utils.MyPageUtils;
 
-import lombok.RequiredArgsConstructor;
 import net.coobird.thumbnailator.Thumbnails;
 
-@RequiredArgsConstructor
+@Transactional
 @Service
 public class UploadServiceImpl implements UploadService {
 
   private final UploadMapper uploadMapper;
   private final MyPageUtils myPageUtils;
   private final MyFileUtils myFileUtils;
-  
-  @Override
+
+    public UploadServiceImpl(UploadMapper uploadMapper, MyPageUtils myPageUtils, MyFileUtils myFileUtils) {
+        this.uploadMapper = uploadMapper;
+        this.myPageUtils = myPageUtils;
+        this.myFileUtils = myFileUtils;
+    }
+
+    @Override
   public boolean registerUpload(MultipartHttpServletRequest multipartRequest) {
 
     // UPLOAD_T 테이블에 추가하기
@@ -130,6 +136,7 @@ public class UploadServiceImpl implements UploadService {
     
   }
 
+  @Transactional(readOnly = true)
   @Override
   public void loadUploadList(Model model) {
     
@@ -191,7 +198,8 @@ public class UploadServiceImpl implements UploadService {
     model.addAttribute("page", page);
     
   }
-  
+
+  @Transactional(readOnly = true)
   @Override
   public void loadUploadByNo(int uploadNo, Model model) {
     model.addAttribute("upload", uploadMapper.getUploadByNo(uploadNo));

@@ -1,15 +1,16 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.gdu.myapp.dto.UploadDto;
+import com.gdu.myapp2.dto.UploadDto;
 
 public interface UploadService {
   boolean registerUpload(MultipartHttpServletRequest multipartRequest);

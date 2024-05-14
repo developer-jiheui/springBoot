@@ -1,18 +1,18 @@
-package com.gdu.myapp.listener;
+package com.gdu.myapp2.listener;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.gdu.myapp.mapper.UserMapper;
+import com.gdu.myapp2.mapper.UserMapper;
 
 /*
   web.xml 파일에 <listener> 태그를 등록해야 한다.
   <listener>
-    <listener-class>com.gdu.myapp.listener.MyHttpSessionListener</listener-class>
+    <listener-class>com.gdu.myapp2.listener.MyHttpSessionListener</listener-class>
   </listener>
 */
 

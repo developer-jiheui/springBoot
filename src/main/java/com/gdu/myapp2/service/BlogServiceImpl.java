@@ -1,4 +1,4 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -16,27 +16,33 @@ import org.jsoup.select.Elements;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.gdu.myapp.dto.BlogDto;
-import com.gdu.myapp.dto.CommentDto;
-import com.gdu.myapp.dto.BlogImageDto;
-import com.gdu.myapp.dto.UserDto;
-import com.gdu.myapp.mapper.BlogMapper;
-import com.gdu.myapp.utils.MyFileUtils;
-import com.gdu.myapp.utils.MyPageUtils;
-import com.gdu.myapp.utils.MySecurityUtils;
+import com.gdu.myapp2.dto.BlogDto;
+import com.gdu.myapp2.dto.CommentDto;
+import com.gdu.myapp2.dto.BlogImageDto;
+import com.gdu.myapp2.dto.UserDto;
+import com.gdu.myapp2.mapper.BlogMapper;
+import com.gdu.myapp2.utils.MyFileUtils;
+import com.gdu.myapp2.utils.MyPageUtils;
+import com.gdu.myapp2.utils.MySecurityUtils;
 
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Service
 public class BlogServiceImpl implements BlogService {
 
   private final BlogMapper blogMapper;
   private final MyPageUtils myPageUtils;
   private final MyFileUtils myFileUtils;
-  
+
+    public BlogServiceImpl(BlogMapper blogMapper, MyPageUtils myPageUtils, MyFileUtils myFileUtils) {
+        this.blogMapper = blogMapper;
+        this.myPageUtils = myPageUtils;
+        this.myFileUtils = myFileUtils;
+    }
+
+    @Transactional(readOnly = true)
   @Override
   public ResponseEntity<Map<String, Object>> summernoteImageUpload(MultipartFile multipartFile) {
     

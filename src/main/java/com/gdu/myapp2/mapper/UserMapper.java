@@ -1,11 +1,13 @@
-package com.gdu.myapp.mapper;
+package com.gdu.myapp2.mapper;
 
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.gdu.myapp.dto.LeaveUserDto;
-import com.gdu.myapp.dto.UserDto;
+import com.gdu.myapp2.dto.LeaveUserDto;
+import com.gdu.myapp2.dto.UserDto;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Mapper
 public interface UserMapper {

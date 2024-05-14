@@ -1,14 +1,15 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.gdu.myapp.dto.BlogDto;
+import com.gdu.myapp2.dto.BlogDto;
 
 public interface BlogService {
   ResponseEntity<Map<String, Object>> summernoteImageUpload(MultipartFile multipartFile);

@@ -1,4 +1,4 @@
-package com.gdu.myapp.dto;
+package com.gdu.myapp2.dto;
 
 import java.sql.Timestamp;
 

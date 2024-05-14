@@ -1,11 +1,11 @@
-package com.gdu.myapp.mapper;
+package com.gdu.myapp2.mapper;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.gdu.myapp.dto.BbsDto;
+import com.gdu.myapp2.dto.BbsDto;
 
 @Mapper
 public interface BbsMapper {

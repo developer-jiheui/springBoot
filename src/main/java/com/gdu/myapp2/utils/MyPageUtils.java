@@ -1,4 +1,4 @@
-package com.gdu.myapp.utils;
+package com.gdu.myapp2.utils;
 
 import org.springframework.stereotype.Component;
 

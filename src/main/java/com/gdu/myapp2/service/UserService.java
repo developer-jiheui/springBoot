@@ -1,13 +1,13 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.http.ResponseEntity;
 
-import com.gdu.myapp.dto.UserDto;
+import com.gdu.myapp2.dto.UserDto;
 
 public interface UserService {
 

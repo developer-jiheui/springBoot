@@ -1,31 +1,36 @@
-package com.gdu.myapp.service;
+package com.gdu.myapp2.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletRequest;
+import com.gdu.myapp2.utils.MyFileUtils;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
-import com.gdu.myapp.dto.BbsDto;
-import com.gdu.myapp.dto.UserDto;
-import com.gdu.myapp.mapper.BbsMapper;
-import com.gdu.myapp.utils.MyPageUtils;
-import com.gdu.myapp.utils.MySecurityUtils;
+import com.gdu.myapp2.dto.BbsDto;
+import com.gdu.myapp2.dto.UserDto;
+import com.gdu.myapp2.mapper.BbsMapper;
+import com.gdu.myapp2.utils.MyPageUtils;
+import com.gdu.myapp2.utils.MySecurityUtils;
 
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
+@Transactional
 @Service
 public class BbsServiceImpl implements BbsService {
 
   private final BbsMapper bbsMapper;
   private final MyPageUtils myPageUtils;
-  
-  @Override
+
+    public BbsServiceImpl(BbsMapper bbsMapper, MyPageUtils myPageUtils, MyFileUtils myFileUtils) {
+        this.bbsMapper = bbsMapper;
+        this.myPageUtils = myPageUtils;
+    }
+
+    @Override
   public int registerBbs(HttpServletRequest request) {
     
     // 사용자가 입력한 contents
